@@ -326,7 +326,111 @@
 
       .grid-cell:last-child {
         border-bottom: none;
+      }/* Блок: Топ продаж */
+    .catalog-section {
+      padding: 60px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .product-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .product-img-box {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: #1a1a1a;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid var(--border);
+      color: #fff;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+    }
+
+    .product-info {
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .product-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .product-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .btn-order-wa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-accent);
+      color: var(--text-main);
+      padding: 12px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .product-card:hover .btn-order-wa {
+      background: var(--accent);
+      color: #000;
+    }
+
+    @media (max-width: 768px) {
+      .catalog-section {
+        padding: 40px 20px;
       }
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
       footer {
         flex-direction: column;
@@ -376,7 +480,66 @@
         <p class="cell-desc">Отправка через транспортные компании, курьерские службы и попутный транспорт во все регионы.</p>
       </div>
     </section>
+<!-- Блок: Топ продаж -->
+    <section class="catalog-section">
+      <div class="section-title">Топ продаж / Ходовые позиции</div>
+      
+      <div class="catalog-grid">
+        
+        <!-- Товар 1 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <span class="product-tag">Хит сезона</span>
+            <!-- Положите фото в папку под именем item1.jpg -->
+            <img src="item1.jpg" alt="Куртки демисезон" class="product-img" onerror="this.src='https://placehold.co/600x750/1a1a1a/666666?text=Фото+товара'">
+          </div>
+          <div class="product-info">
+            <div>
+              <h3 class="product-title">Куртки демисезон</h3>
+              <p class="product-meta">Линейка: 48–56 (5 шт.)<br>Плотная водоотталкивающая ткань</p>
+            </div>
+            <a href="https://wa.me/77785998939?text=Здравствуйте,%20интересует%20опт%20по%20модели:%20Куртки%20демисезон" target="_blank" class="btn-order-wa">
+              Узнать оптовую цену
+            </a>
+          </div>
+        </div>
 
+        <!-- Товар 2 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <span class="product-tag">Топ продаж</span>
+            <img src="item2.jpg" alt="Ветровки классик" class="product-img" onerror="this.src='https://placehold.co/600x750/1a1a1a/666666?text=Фото+товара'">
+          </div>
+          <div class="product-info">
+            <div>
+              <h3 class="product-title">Ветровки и бомберы</h3>
+              <p class="product-meta">Линейка: 46–54 (5 шт.)<br>Фабричное качество, фурнитура люкс</p>
+            </div>
+            <a href="https://wa.me/77785998939?text=Здравствуйте,%20интересует%20опт%20по%20модели:%20Ветровки" target="_blank" class="btn-order-wa">
+              Узнать оптовую цену
+            </a>
+          </div>
+        </div>
+
+        <!-- Товар 3 -->
+        <div class="product-card">
+          <div class="product-img-box">
+            <span class="product-tag">Новинка</span>
+            <img src="item3.jpg" alt="Жилетки утепленные" class="product-img" onerror="this.src='https://placehold.co/600x750/1a1a1a/666666?text=Фото+товара'">
+          </div>
+          <div class="product-info">
+            <div>
+              <h3 class="product-title">Жилетки утепленные</h3>
+              <p class="product-meta">Линейка: 48–56 (5 шт.)<br>Практичный фасон, актуальные цвета</p>
+            </div>
+            <a href="https://wa.me/77785998939?text=Здравствуйте,%20интересует%20опт%20по%20модели:%20Жилетки" target="_blank" class="btn-order-wa">
+              Узнать оптовую цену
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
     <section class="contacts-section">
       <div class="section-title">Контакты для закупа и каталога</div>
       <div class="contacts-grid">
