@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Optom.Aqbulaq — Оптовые поставки мужской одежды</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --card-bg: #141414;
+      --border: #262626;
+      --border-accent: #404040;
+      --text-main: #f5f5f5;
+      --text-muted: #8e8e8e;
+      --accent: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      border-left: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 24px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-insta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-main);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .btn-insta:hover {
+      border-color: var(--border-accent);
+      background: #1a1a1a;
+    }
+
+    .btn-insta svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
+
+    .hero {
+      padding: 80px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.3rem, 5.5vw, 4rem);
+      font-weight: 600;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 30px;
+      max-width: 850px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      font-weight: 300;
+    }
+
+    .grid-conditions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .grid-cell {
+      padding: 48px 40px;
+      border-right: 1px solid var(--border);
+    }
+
+    .grid-cell:last-child {
+      border-right: none;
+    }
+
+    .cell-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .cell-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .cell-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    .contacts-section {
+      padding: 60px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .contact-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .contact-meta {
+      margin-bottom: 32px;
+    }
+
+    .contact-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .contact-role {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-phone {
+      font-size: 1.05rem;
+      color: var(--text-main);
+      margin-top: 14px;
+      display: block;
+      font-family: monospace;
+      letter-spacing: 0.05em;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background-color: var(--accent);
+      color: #000000;
+      padding: 16px 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-wa:hover {
+      background-color: #dcdcdc;
+    }
+
+    footer {
+      padding: 32px 40px;
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .footer-right a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-right a:hover {
+      color: var(--text-main);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        border: none;
+      }
+
+      header, .hero, .grid-cell, .contacts-section, footer {
+        padding: 24px 20px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .header-links {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .grid-conditions, .contacts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .grid-cell:last-child {
+        border-bottom: none;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <a href="#" class="brand-block">
+        <img src="logo.png" alt="Логотип" class="brand-logo" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <span class="brand-name">Optom.Aqbulaq</span>
+          <span class="brand-sub">Только оптом</span>
+        </div>
+      </a>
+
+      <div class="header-links">
+        <a href="https://instagram.com/Optom.Aqbulaq" target="_blank" class="btn-insta">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </header>
+
+    <main class="hero">
+      <span class="hero-label">Оптовый склад</span>
+      <h1>Мужская одежда напрямую с фабрики.</h1>
+      <p>Специализируемся на оптовой дистрибуции. Актуальные модели, высокое качество пошива и быстрая отправка заказов.</p>
+    </main>
+
+    <section class="grid-conditions">
+      <div class="grid-cell">
+        <span class="cell-number">01 / МИНИМАЛЬНЫЙ ЗАКАЗ</span>
+        <h2 class="cell-title">От 1 линейки</h2>
+        <p class="cell-desc">Комфортные условия для розничных магазинов и торговых точек. Полные размерные ряды.</p>
+      </div>
+      <div class="grid-cell">
+        <span class="cell-number">02 / ЛОГИСТИКА</span>
+        <h2 class="cell-title">Казахстан и СНГ</h2>
+        <p class="cell-desc">Отправка через транспортные компании, курьерские службы и попутный транспорт во все регионы.</p>
+      </div>
+    </section>
+
+    <section class="contacts-section">
+      <div class="section-title">Контакты для закупа и каталога</div>
+      <div class="contacts-grid">
+        
+        <div class="contact-card">
+          <div class="contact-meta">
+            <h3 class="contact-name">Таир</h3>
+            <span class="contact-role">Менеджер по опту</span>
+            <span class="contact-phone">+7 (778) 599-89-39</span>
+          </div>
+          <a href="https://wa.me/77785998939?text=Здравствуйте,%20Таир!%20Интересует%20оптовый%20закуп%20и%20актуальный%20каталог." target="_blank" class="btn-wa">
+            Написать в WhatsApp
+          </a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-meta">
+            <h3 class="contact-name">Ильяс</h3>
+            <span class="contact-role">Менеджер по опту</span>
+            <span class="contact-phone">+7 (708) 550-23-72</span>
+          </div>
+          <a href="https://wa.me/77085502372?text=Здравствуйте,%20Ильяс!%20Интересует%20оптовый%20закуп%20и%20актуальный%20каталог." target="_blank" class="btn-wa">
+            Написать в WhatsApp
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div>г. Алматы, Рынок «Акбулак», 7 ряд, 95-97 контейнер • Отгрузка по Казахстану и СНГ</div>
+      <div class="footer-right">
+        <a href="https://instagram.com/Optom.Aqbulaq" target="_blank">Instagram</a>
+        <span>•</span>
+        <a href="https://2gis.kz" target="_blank">Открыть в 2ГИС</a>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
